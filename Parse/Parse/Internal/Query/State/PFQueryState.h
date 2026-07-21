@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFConstants.h>
+#import "PFConstants.h"
 
 #import "PFBaseState.h"
 
@@ -23,11 +23,15 @@
 @property (nonatomic, copy, readonly) NSString *sortOrderString;
 
 @property (nonatomic, copy, readonly) NSSet<NSString *> *includedKeys;
+@property (nonatomic, copy, readonly) NSSet<NSString *> *excludedKeys;
 @property (nonatomic, copy, readonly) NSSet<NSString *> *selectedKeys;
 @property (nonatomic, copy, readonly) NSDictionary<NSString *, NSString *> *extraOptions;
 
 @property (nonatomic, assign, readonly) NSInteger limit;
 @property (nonatomic, assign, readonly) NSInteger skip;
+
+@property (nonatomic, assign, readonly) BOOL explain;
+@property (nonatomic, copy, readonly) NSString *hint;
 
 ///--------------------------------------
 #pragma mark - Remote + Caching Options

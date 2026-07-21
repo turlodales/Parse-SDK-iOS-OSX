@@ -9,8 +9,6 @@
 
 #import "ParseStarterProjectViewController.h"
 
-#import <Parse/Parse.h>
-
 @implementation ParseStarterProjectViewController
 
 #pragma mark -

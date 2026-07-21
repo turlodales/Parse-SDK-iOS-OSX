@@ -9,9 +9,15 @@
 
 #import "PFPurchaseController.h"
 
+#if TARGET_OS_IOS || TARGET_OS_TV
+
 #import <StoreKit/StoreKit.h>
 
+#if __has_include(<Bolts/BFTaskCompletionSource.h>)
 #import <Bolts/BFTaskCompletionSource.h>
+#else
+#import "BFTaskCompletionSource.h"
+#endif
 
 #import "BFTask+Private.h"
 #import "PFAssert.h"
@@ -233,3 +239,5 @@
 }
 
 @end
+
+#endif

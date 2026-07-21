@@ -1097,6 +1097,42 @@
     [task waitUntilFinished];
 }
 
+- (void)testQueryContainedBy {
+    PFOfflineQueryLogic *logic = [[PFOfflineQueryLogic alloc] init];
+    PFSQLiteDatabase *database = [[PFSQLiteDatabase alloc] init];
+
+    PFObject *object = [PFObject objectWithClassName:@"Object"];
+    object[@"numbers"] = @[@0, @2];
+    object[@"letters"] = @[@"b", @"c", @"d"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Object"];
+    BFTask *task = [BFTask taskWithResult:nil];
+
+    [query whereKey:@"numbers" containedBy:@[@1, @2, @3, @4]];
+    PFConstraintMatcherBlock matcherBlock = [logic createMatcherForQueryState:query.state user:_user];
+
+    // Check matcher
+    task = [[task continueWithBlock:^id(BFTask *task) {
+        return matcherBlock(object, database);
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertFalse([task.result boolValue]);
+        return nil;
+    }];
+
+    query = [PFQuery queryWithClassName:@"Object"];
+    [query whereKey:@"letters" containedBy:@[@"a", @"b", @"c", @"d", @"e"]];
+    matcherBlock = [logic createMatcherForQueryState:query.state user:_user];
+
+    // Check matcher
+    task = [[task continueWithBlock:^id(BFTask *task) {
+        return matcherBlock(object, database);
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertTrue([task.result boolValue]);
+        return nil;
+    }];
+
+    [task waitUntilFinished];
+}
+
 - (void)testQueryRegex {
     PFOfflineQueryLogic *logic = [[PFOfflineQueryLogic alloc] init];
     PFSQLiteDatabase *database = [[PFSQLiteDatabase alloc] init];
@@ -1455,6 +1491,35 @@
     PFQuery *query2 = [PFQuery queryWithClassName:@"Object"];
     [query2 whereKey:@"foo" containedIn:@[@123, @456, @"barz"]];
     query = [PFQuery orQueryWithSubqueries:@[query1, query2]];
+    PFConstraintMatcherBlock matcherBlock = [logic createMatcherForQueryState:query.state user:_user];
+
+    // Check matcher
+    task = [[task continueWithBlock:^id(BFTask *task) {
+        return matcherBlock(object, database);
+    }] continueWithBlock:^id(BFTask *task) {
+        XCTAssertTrue([task.result boolValue]);
+        return nil;
+    }];
+
+    [task waitUntilFinished];
+}
+
+- (void)testQueryAnd {
+    PFOfflineQueryLogic *logic = [[PFOfflineQueryLogic alloc] init];
+    PFSQLiteDatabase *database = [[PFSQLiteDatabase alloc] init];
+
+    PFObject *object = [PFObject objectWithClassName:@"Object"];
+    object[@"foo"] = @"bar";
+    object[@"sum"] = @1337;
+    object[@"ArrezTheGodOfWar"] = @[@"bar", @1337];
+    PFQuery *query = nil;
+    BFTask *task = [BFTask taskWithResult:nil];
+
+    PFQuery *query1 = [PFQuery queryWithClassName:@"Object"];
+    [query1 whereKey:@"foo" equalTo:@"bar"];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Object"];
+    [query2 whereKey:@"sum" equalTo:@1337];
+    query = [PFQuery andQueryWithSubqueries:@[query1, query2]];
     PFConstraintMatcherBlock matcherBlock = [logic createMatcherForQueryState:query.state user:_user];
 
     // Check matcher

@@ -29,6 +29,7 @@
     NSArray<NSString *> *_sortKeys;
 
     NSSet<NSString *> *_includedKeys;
+    NSSet<NSString *> *_excludedKeys;
     NSSet<NSString *> *_selectedKeys;
     NSDictionary<NSString *, NSString *> *_extraOptions;
 
@@ -39,6 +40,9 @@
     NSTimeInterval _maxCacheAge;
 
     BOOL _trace;
+    
+    BOOL _explain;
+    NSString *_hint;
 
     BOOL _shouldIgnoreACLs;
     BOOL _shouldIncludeDeletingEventually;
@@ -50,6 +54,9 @@
 
 @property (nonatomic, assign, readwrite) NSInteger limit;
 @property (nonatomic, assign, readwrite) NSInteger skip;
+
+@property (nonatomic, assign, readwrite) BOOL explain;
+@property (nonatomic, copy, readwrite) NSString *hint;
 
 ///--------------------------------------
 #pragma mark - Remote + Caching Options

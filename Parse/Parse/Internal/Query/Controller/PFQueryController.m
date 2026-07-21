@@ -9,7 +9,11 @@
 
 #import "PFQueryController.h"
 
+#if __has_include(<Bolts/BFCancellationToken.h>)
 #import <Bolts/BFCancellationToken.h>
+#else
+#import "BFCancellationToken.h"
+#endif
 
 #import "BFTask+Private.h"
 #import "PFAssert.h"
@@ -73,6 +77,9 @@
         PFCommandResult *result = task.result;
         NSDate *queryReceived = (queryState.trace ? [NSDate date] : nil);
 
+        if (queryState.explain) {
+            return result.result[@"results"];
+        }
         NSArray *resultObjects = result.result[@"results"];
         NSMutableArray *foundObjects = [NSMutableArray arrayWithCapacity:resultObjects.count];
         if (resultObjects != nil) {

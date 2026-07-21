@@ -28,8 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
                                           conditions:(nullable NSDictionary *)conditions
                                         selectedKeys:(nullable NSSet *)selectedKeys
                                         includedKeys:(nullable NSSet *)includedKeys
+                                        excludedKeys:(nullable NSSet *)excludedKeys
                                                limit:(NSInteger)limit
                                                 skip:(NSInteger)skip
+                                             explain:(BOOL)explain
+                                                hint:(NSString *)hint
                                         extraOptions:(nullable NSDictionary *)extraOptions
                                       tracingEnabled:(BOOL)trace
                                         sessionToken:(nullable NSString *)sessionToken
@@ -52,8 +55,11 @@ NS_ASSUME_NONNULL_BEGIN
                                                conditions:(nullable NSDictionary *)conditions
                                              selectedKeys:(nullable NSSet *)selectedKeys
                                              includedKeys:(nullable NSSet *)includedKeys
+                                             excludedKeys:(nullable NSSet *)excludedKeys
                                                     limit:(NSInteger)limit
                                                      skip:(NSInteger)skip
+                                                  explain:(BOOL)explain
+                                                     hint:(NSString *)hint
                                              extraOptions:(nullable NSDictionary *)extraOptions
                                            tracingEnabled:(BOOL)trace
                                                     error:(NSError **)error;

@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFConstants.h>
+#import "PFConstants.h"
 
 #import "PFEncoder.h"
 
@@ -18,9 +18,6 @@
 @class PFNetworkCommand;
 
 @interface PFInternalUtils : NSObject
-
-+ (NSString *)parseServerURLString;
-+ (void)setParseServer:(NSString *)server;
 
 /**
  Clears system time zone cache, gets the name of the time zone

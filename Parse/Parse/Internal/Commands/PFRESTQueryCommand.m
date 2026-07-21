@@ -36,8 +36,11 @@
                                          conditions:(NSDictionary *)conditions
                                        selectedKeys:(NSSet *)selectedKeys
                                        includedKeys:(NSSet *)includedKeys
+                                       excludedKeys:(NSSet *)excludedKeys
                                               limit:(NSInteger)limit
                                                skip:(NSInteger)skip
+                                             explain:(BOOL)explain
+                                                hint:(NSString *)hint
                                        extraOptions:(NSDictionary *)extraOptions
                                      tracingEnabled:(BOOL)trace
                                        sessionToken:(NSString *)sessionToken
@@ -46,8 +49,11 @@
                                                          conditions:conditions
                                                        selectedKeys:selectedKeys
                                                        includedKeys:includedKeys
+                                                       excludedKeys:excludedKeys
                                                               limit:limit
                                                                skip:skip
+                                                            explain:explain
+                                                               hint:hint
                                                        extraOptions:extraOptions
                                                      tracingEnabled:trace
                                                               error:error];
@@ -98,8 +104,11 @@
                                      conditions:queryState.conditions
                                    selectedKeys:queryState.selectedKeys
                                    includedKeys:queryState.includedKeys
+                                   excludedKeys:queryState.excludedKeys
                                           limit:queryState.limit
                                            skip:queryState.skip
+                                        explain:queryState.explain
+                                           hint:queryState.hint
                                    extraOptions:queryState.extraOptions
                                  tracingEnabled:queryState.trace
                                           error:error];
@@ -109,8 +118,11 @@
                                       conditions:(NSDictionary *)conditions
                                     selectedKeys:(NSSet *)selectedKeys
                                     includedKeys:(NSSet *)includedKeys
+                                    excludedKeys:(NSSet *)excludedKeys
                                            limit:(NSInteger)limit
                                             skip:(NSInteger)skip
+                                         explain:(BOOL)explain
+                                            hint:(NSString *)hint
                                     extraOptions:(NSDictionary *)extraOptions
                                   tracingEnabled:(BOOL)trace
                                            error:(NSError **)error {
@@ -129,6 +141,11 @@
         NSArray *keysArray = [includedKeys sortedArrayUsingDescriptors:sortDescriptors];
         parameters[@"include"] = [keysArray componentsJoinedByString:@","];
     }
+    if (excludedKeys.count > 0) {
+        NSArray *sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES selector:@selector(compare:)] ];
+        NSArray *keysArray = [excludedKeys sortedArrayUsingDescriptors:sortDescriptors];
+        parameters[@"excludeKeys"] = [keysArray componentsJoinedByString:@","];
+    }
     if (limit >= 0) {
         parameters[@"limit"] = [NSString stringWithFormat:@"%d", (int)limit];
     }
@@ -138,6 +155,12 @@
     if (trace) {
         // TODO: (nlutsenko) Double check that tracing still works. Maybe create test for it.
         parameters[@"trace"] = @"1";
+    }
+    if (explain) {
+        parameters[@"explain"] =  @"1";
+    }
+    if (hint != nil) {
+        parameters[@"hint"] = hint;
     }
     [extraOptions enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         parameters[key] = obj;
@@ -157,14 +180,18 @@
                     PFParameterAssert(subquery.state.skip == 0, @"OR queries do not support sub queries with skip");
                     PFParameterAssert(subquery.state.sortKeys.count == 0, @"OR queries do not support sub queries with order");
                     PFParameterAssert(subquery.state.includedKeys.count == 0, @"OR queries do not support sub-queries with includes");
+                    PFParameterAssert(subquery.state.excludedKeys.count == 0, @"OR queries do not support sub-queries with excludeKeys");
                     PFParameterAssert(subquery.state.selectedKeys == nil, @"OR queries do not support sub-queries with selectKeys");
 
                     NSDictionary *queryDict = [self findCommandParametersWithOrder:subquery.state.sortOrderString
                                                                         conditions:subquery.state.conditions
                                                                       selectedKeys:subquery.state.selectedKeys
                                                                       includedKeys:subquery.state.includedKeys
+                                                                      excludedKeys:subquery.state.excludedKeys
                                                                              limit:subquery.state.limit
                                                                               skip:subquery.state.skip
+                                                                           explain:subquery.state.explain
+                                                                              hint:subquery.state.hint
                                                                       extraOptions:nil
                                                                     tracingEnabled:NO
                                                                              error:&encodingError];
@@ -224,8 +251,11 @@
                                                               conditions:subquery.state.conditions
                                                             selectedKeys:subquery.state.selectedKeys
                                                             includedKeys:subquery.state.includedKeys
-                                                                    limit:subquery.state.limit
+                                                            excludedKeys:subquery.state.excludedKeys
+                                                                   limit:subquery.state.limit
                                                                     skip:subquery.state.skip
+                                                                 explain:subquery.state.explain
+                                                                    hint:subquery.state.hint
                                                             extraOptions:subquery.state.extraOptions
                                                           tracingEnabled:NO
                                                                    error:&encodingError];

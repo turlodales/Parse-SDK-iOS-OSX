@@ -26,6 +26,7 @@
         PFQueryStatePropertyName(conditions): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
         PFQueryStatePropertyName(sortKeys): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
         PFQueryStatePropertyName(includedKeys): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
+        PFQueryStatePropertyName(excludedKeys): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
         PFQueryStatePropertyName(selectedKeys): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
         PFQueryStatePropertyName(extraOptions): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
 
@@ -38,8 +39,10 @@
         PFQueryStatePropertyName(shouldIgnoreACLs): [PFPropertyAttributes attributes],
         PFQueryStatePropertyName(shouldIncludeDeletingEventually): [PFPropertyAttributes attributes],
         PFQueryStatePropertyName(queriesLocalDatastore): [PFPropertyAttributes attributes],
-
-        PFQueryStatePropertyName(localDatastorePinName): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy]
+        PFQueryStatePropertyName(localDatastorePinName): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy],
+        
+        PFQueryStatePropertyName(explain): [PFPropertyAttributes attributes],
+        PFQueryStatePropertyName(hint): [PFPropertyAttributes attributesWithAssociationType:PFPropertyInfoAssociationTypeCopy]
     };
 }
 

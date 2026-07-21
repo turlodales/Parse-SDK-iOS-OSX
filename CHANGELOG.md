@@ -1,3 +1,243 @@
+## [6.1.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/6.1.0...6.1.1) (2025-11-19)
+
+
+### Bug Fixes
+
+* LiveQuery event lost for operation on class with pointer field ([#1863](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1863)) ([cfd1bc4](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/cfd1bc4b71228b7faf633231a8952c0a6e6b18b4))
+
+# [6.1.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/6.0.1...6.1.0) (2025-11-18)
+
+
+### Features
+
+* Add `PFUser.logInWithUsernameInBackground` that takes additional auth data ([#1858](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1858)) ([0854f8d](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/0854f8d844986ff1dab4f19fcdb68c0eba012eb4))
+
+## [6.0.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/6.0.0...6.0.1) (2025-11-17)
+
+
+### Bug Fixes
+
+* Invalid query request parameter `excludedKeys` sent to server for excluding fields in query results ([#1864](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1864)) ([e14c4c5](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/e14c4c56c50c1561400e4aaf2f6272df495a17ca))
+
+# [6.0.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/5.1.1...6.0.0) (2025-11-17)
+
+
+### Features
+
+* Remove support for Xcode 15  ([#1865](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1865)) ([b22393c](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/b22393ce823aa470f8ead10f66f02b41132ef706))
+
+
+### BREAKING CHANGES
+
+* Removes support for Xcode 15 (iOS 17, macOS 14, watchOS 10, tvOS 17). ([b22393c](b22393c))
+
+## [5.1.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/5.1.0...5.1.1) (2025-01-31)
+
+
+### Bug Fixes
+
+* `Parse.setServer` doesn't properly validate URL ([#1844](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1844)) ([d7b1c8e](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/d7b1c8e3ff723a0e5873c14884c1d33647ce66b1))
+
+# [5.1.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/5.0.0...5.1.0) (2025-01-28)
+
+
+### Features
+
+* Add `PFObject.fromDictionary` to create an object from dictionary ([#1834](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1834)) ([e197cfa](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/e197cfa1c7827786156c5559088eb3752c9f4e92))
+
+# [5.0.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.2.0...5.0.0) (2025-01-28)
+
+
+### Features
+
+* Remove support for Xcode 14 ([#1835](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1835)) ([e94c4d5](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/e94c4d5498e0f1241dba88a89e0547b8e6cccccb))
+
+
+### BREAKING CHANGES
+
+* This release removes support for Xcode 14. ([e94c4d5](e94c4d5))
+
+# [4.2.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.1.2...4.2.0) (2024-11-30)
+
+
+### Features
+
+* Add support for Xcode 16 ([#1824](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1824)) ([643d486](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/643d486583efb61c76fcb1243282493880edc695))
+
+## [4.1.2](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.1.1...4.1.2) (2024-10-14)
+
+
+### Bug Fixes
+
+* App crashes on launch and SwiftUI preview when built with Xcode 16 due to unregistered Parse subclasses ([#1811](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1811)) ([d363a78](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/d363a7867b1b211b6f1b9a8c08f27fb208518f76))
+
+## [4.1.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.1.0...4.1.1) (2024-07-15)
+
+
+### Bug Fixes
+
+* SPM build issues with Xcode 16 ([#1795](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1795)) ([5381325](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/5381325fae622eaa5292146ea322a00c0f46e97d))
+
+# [4.1.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.0.1...4.1.0) (2024-06-17)
+
+
+### Features
+
+* Add idempotency ([#1790](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1790)) ([dcdf457](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/dcdf45743eab1126a76aba34e555fb2575f67a3b))
+
+## [4.0.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/4.0.0...4.0.1) (2024-04-28)
+
+
+### Bug Fixes
+
+* LiveQuery starter project fails to build ([#1784](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1784)) ([0821194](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/08211940c839b8b9896d715891795049a6378766))
+
+# [4.0.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/3.0.0...4.0.0) (2024-04-28)
+
+
+### Features
+
+* Remove `ParseUI` ([#1783](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1783)) ([139eca7](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/139eca7f2423bf92c5b6d821eaf4cda16816dd6f))
+
+
+### BREAKING CHANGES
+
+* This release removes `ParseUI`. ([139eca7](139eca7))
+
+# [3.0.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.7.3...3.0.0) (2024-04-08)
+
+
+### Features
+
+* Add `PFObject.isDataAvailableForKey` to check if data is available for individual key ([#1756](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1756)) ([dd05d41](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/dd05d411a54712ee927e5fb8af390ae36a60ed7e))
+* Remove `ParseFacebookUtils` and `ParseTwitterUtils` ([#1779](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1779)) ([f1311ee](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/f1311eee00a2419720e85d7ca90fe868e509e4ed))
+
+
+### BREAKING CHANGES
+
+* Removes convenience modules `ParseFacebookUtils` and `ParseTwitterUtils`, instead manually add the 3rd party authentication service SDK to log in and provide the authentication data to `PFUser.logInWithAuthType` to link the Parse User. ([f1311ee](f1311ee))
+
+## [2.7.3](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.7.2...2.7.3) (2023-10-06)
+
+
+### Bug Fixes
+
+* Compilation errors in `ParseLiveQuery` using `Starscream` 4.0.6 ([#1749](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1749)) ([3da5bde](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/3da5bde7d20ac4ff99aa40dd75fa8f7f3997acae))
+
+## [2.7.2](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.7.1...2.7.2) (2023-10-05)
+
+
+### Bug Fixes
+
+* Compilation errors `Undefined symbol` and `SystemConfiguration not found` on watchOS ([#1748](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1748)) ([e7df36b](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/e7df36beb735fd7dc4b86127bf86b34fb30b009d))
+
+### Notes
+
+- The compiled frameworks of the Parse SDK will not be provided anymore as part of a release. Instead use Swift Package Manager to add the Parse SDK to your Xcode project.
+
+## [2.7.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.7.0...2.7.1) (2023-09-30)
+
+
+### Bug Fixes
+
+* Compilation error on macOS `Undefined symbol: OBJC_CLASS$_PFProductsRequestHandler` ([#1739](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1739)) ([7231bf7](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/7231bf77fb5dd74e05c19c7a67ba61840c43768b))
+
+# [2.7.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.6.0...2.7.0) (2023-07-20)
+
+
+### Features
+
+* Add support for `PFQuery.containedBy` ([#1735](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1735)) ([2316a3f](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/2316a3f47f2b19a73bc4a684cefa082cbc2d53d1))
+
+# [2.6.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.5.0...2.6.0) (2023-07-14)
+
+
+### Features
+
+* Add support for compound AND queries with `PFQuery.andQueryWithSubqueries` ([#1733](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1733)) ([bd09fe4](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/bd09fe446748d26c0e91879fa3cd67e0eb4b5c1b))
+
+# [2.5.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.4.0...2.5.0) (2023-07-14)
+
+
+### Features
+
+* Add support to include all pointers with `PFQuery.includeAll` ([#1734](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1734)) ([04f81e8](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/04f81e803ae679c96e3f37cfe0e0954ea1c210bf))
+
+# [2.4.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.3.0...2.4.0) (2023-07-11)
+
+
+### Features
+
+* Add support to exclude `PFObject` fields in query results with `PFQuery.excludeKeys` ([#1731](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1731)) ([98e5faf](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/98e5faf5d0b5eb8761bad1b37458d698262b18ce))
+
+# [2.3.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.2.0...2.3.0) (2023-06-08)
+
+
+### Features
+
+* Add LiveQuery module to SDK; this deprecates the separate [Parse LiveQuery SDK](https://github.com/parse-community/ParseLiveQuery-iOS-OSX) ([#1712](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1712)) ([154da34](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/154da34b021abf4f53fa632539505e18b4cf3e8d))
+
+# [2.2.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.1.1...2.2.0) (2023-03-10)
+
+
+### Features
+
+* Add support for `PFQuery.explain` and `PFQuery.hint` ([#1723](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1723)) ([583d266](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/583d2662c05b871bfda75cf6e44608e903b544a2))
+
+## [2.1.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.1.0...2.1.1) (2023-02-26)
+
+
+### Performance Improvements
+
+* Skip registering auth delegate if it's already registered ([#1715](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1715)) ([6d7eadd](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/6d7eadd322d3ac2f011c33d9dbee89b9e051e744))
+
+# [2.1.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.0.3...2.1.0) (2023-02-22)
+
+
+### Features
+
+* Add `PFUser.unregisterAuthenticationDelegate` and allow to register delegate gracefully if another delegate is already registered ([#1711](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1711)) ([0ef9351](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/0ef93517136d668991b0226643e06bb15982935c))
+
+## [2.0.3](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.0.2...2.0.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* `Parse.setServer` does not set new server URL ([#1708](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1708)) ([fd487da](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/fd487da490d7a3ad3f49c86ffde28973d7ef7f71))
+
+## [2.0.2](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.0.1...2.0.2) (2023-01-30)
+
+
+### Bug Fixes
+
+* MacOS command line app crashes if Parse framework is installed in `/Library/Frameworks/` ([#1395](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1395)) ([54bc6f3](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/54bc6f3967fad8b8febe35932ce2024ba6928174))
+
+## [2.0.1](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/2.0.0...2.0.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* Adding via SPM doesn't work due to unstable Bolts dependency ([#1695](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1695)) ([b264df1](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/b264df19e06a928daa222cf34fbe07b1ed51aed9))
+
+# [2.0.0](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/1.19.4...2.0.0) (2023-01-29)
+
+
+### Features
+
+* Add Swift Package Manager support; upgrade `ParseFacbookUtils` to Facebook SDK 15 ([#1683](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1683)) ([840390b](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/840390b18c8e567356103d9ff19ca21523c16ac3))
+
+
+### BREAKING CHANGES
+
+* Carthage support is removed; the core module name has changed therefore the import statement is now `import ParseCore` instead of `import Parse` (#1683) ([840390b](840390b))
+
+## [1.19.4](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/1.19.3...1.19.4) (2022-10-26)
+
+
+### Bug Fixes
+
+* implementation via CocoaPods fails due to missing `FBSDKCoreKit` dependency ([#1666](https://github.com/parse-community/Parse-SDK-iOS-OSX/issues/1666)) ([ac8a4fa](https://github.com/parse-community/Parse-SDK-iOS-OSX/commit/ac8a4fade08c2be59d7ece014ba429067f598deb))
+
 ## [1.19.3](https://github.com/parse-community/Parse-SDK-iOS-OSX/compare/1.19.2...1.19.3) (2021-11-21)
 
 

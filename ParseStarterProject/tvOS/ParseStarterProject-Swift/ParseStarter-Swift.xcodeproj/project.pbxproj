@@ -3,53 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		81993FC71B69AA940077D6B9 /* Bootstrap */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 81993FCA1B69AA950077D6B9 /* Build configuration list for PBXAggregateTarget "Bootstrap" */;
-			buildPhases = (
-				81993FCB1B69AA9F0077D6B9 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = Bootstrap;
-			productName = Bootstrap;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
+		39CE82D42ACF48BF00142920 /* ParseObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 39CE82D32ACF48BF00142920 /* ParseObjC */; };
+		39CE82D82ACF48C700142920 /* ParseLiveQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 39CE82D72ACF48C700142920 /* ParseLiveQuery */; };
+		7C605F96292BC29500E4B6D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C605F95292BC29500E4B6D2 /* SystemConfiguration.framework */; };
+		7C605F98292BC29800E4B6D2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C605F97292BC29800E4B6D2 /* libsqlite3.tbd */; };
 		81C066EF1BFAC1D4001E0658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C066EE1BFAC1D4001E0658 /* AppDelegate.swift */; };
 		81C066F11BFAC1D4001E0658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C066F01BFAC1D4001E0658 /* ViewController.swift */; };
 		81C066FE1BFAC330001E0658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C066F21BFAC1D4001E0658 /* Main.storyboard */; };
-		81C067051BFAC8CD001E0658 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C067031BFAC8CD001E0658 /* Bolts.framework */; };
-		81C067061BFAC8CD001E0658 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C067041BFAC8CD001E0658 /* Parse.framework */; };
-		81C067081BFAC98B001E0658 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C067071BFAC98B001E0658 /* SystemConfiguration.framework */; };
-		81C0670A1BFAC9C8001E0658 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C067091BFAC9C8001E0658 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		81C066FB1BFAC308001E0658 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 81BA813D1A49DA1800E65899 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 81993FC71B69AA940077D6B9;
-			remoteInfo = Bootstrap;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		39CE82D22ACF48AE00142920 /* Parse-SDK-iOS-OSX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Parse-SDK-iOS-OSX"; path = ../../..; sourceTree = "<group>"; };
+		7C605F95292BC29500E4B6D2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS16.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		7C605F97292BC29800E4B6D2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS16.1.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		81C066EC1BFAC1D4001E0658 /* ParseStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C066EE1BFAC1D4001E0658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C066F01BFAC1D4001E0658 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81C066F31BFAC1D4001E0658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81C066F71BFAC1D4001E0658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81C067031BFAC8CD001E0658 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		81C067041BFAC8CD001E0658 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		81C067071BFAC98B001E0658 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		81C067091BFAC9C8001E0658 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,19 +32,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81C0670A1BFAC9C8001E0658 /* libsqlite3.tbd in Frameworks */,
-				81C067081BFAC98B001E0658 /* SystemConfiguration.framework in Frameworks */,
-				81C067061BFAC8CD001E0658 /* Parse.framework in Frameworks */,
-				81C067051BFAC8CD001E0658 /* Bolts.framework in Frameworks */,
+				39CE82D42ACF48BF00142920 /* ParseObjC in Frameworks */,
+				39CE82D82ACF48C700142920 /* ParseLiveQuery in Frameworks */,
+				7C605F98292BC29800E4B6D2 /* libsqlite3.tbd in Frameworks */,
+				7C605F96292BC29500E4B6D2 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39CE82D12ACF48AE00142920 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				39CE82D22ACF48AE00142920 /* Parse-SDK-iOS-OSX */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
+				39CE82D12ACF48AE00142920 /* Packages */,
 				81C066ED1BFAC1D4001E0658 /* ParseStarter */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
@@ -87,20 +71,10 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81C067031BFAC8CD001E0658 /* Bolts.framework */,
-				81C067041BFAC8CD001E0658 /* Parse.framework */,
-				81BA81751A49E0C500E65899 /* System Frameworks */,
+				7C605F97292BC29800E4B6D2 /* libsqlite3.tbd */,
+				7C605F95292BC29500E4B6D2 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		81BA81751A49E0C500E65899 /* System Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				81C067091BFAC9C8001E0658 /* libsqlite3.tbd */,
-				81C067071BFAC98B001E0658 /* SystemConfiguration.framework */,
-			);
-			name = "System Frameworks";
 			sourceTree = "<group>";
 		};
 		81C066ED1BFAC1D4001E0658 /* ParseStarter */ = {
@@ -128,9 +102,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				81C066FC1BFAC308001E0658 /* PBXTargetDependency */,
 			);
 			name = ParseStarter;
+			packageProductDependencies = (
+				39CE82D32ACF48BF00142920 /* ParseObjC */,
+				39CE82D72ACF48C700142920 /* ParseLiveQuery */,
+			);
 			productName = ParseStarter;
 			productReference = 81C066EC1BFAC1D4001E0658 /* ParseStarter.app */;
 			productType = "com.apple.product-type.application";
@@ -145,9 +122,6 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = Parse;
 				TargetAttributes = {
-					81993FC71B69AA940077D6B9 = {
-						CreatedOnToolsVersion = 6.4;
-					};
 					81C066EB1BFAC1D4001E0658 = {
 						CreatedOnToolsVersion = 7.1.1;
 						LastSwiftMigration = 0830;
@@ -168,7 +142,6 @@
 			projectRoot = "";
 			targets = (
 				81C066EB1BFAC1D4001E0658 /* ParseStarter */,
-				81993FC71B69AA940077D6B9 /* Bootstrap */,
 			);
 		};
 /* End PBXProject section */
@@ -184,23 +157,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		81993FCB1B69AA9F0077D6B9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ ! -d \"Bolts.framework\" ]]; then\n  ../../../Carthage/Checkouts/Bolts-ObjC/scripts/build_framework.sh -n -c Release --with-watchos --with-tvos\n  cp -R ../../../Carthage/Checkouts/Bolts-ObjC/build/tvOS/Bolts.framework .\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		81C066E81BFAC1D4001E0658 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,14 +168,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		81C066FC1BFAC308001E0658 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 81993FC71B69AA940077D6B9 /* Bootstrap */;
-			targetProxy = 81C066FB1BFAC308001E0658 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		81C066F21BFAC1D4001E0658 /* Main.storyboard */ = {
@@ -233,22 +181,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		81993FC81B69AA950077D6B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-			};
-			name = Debug;
-		};
-		81993FC91B69AA950077D6B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-			};
-			name = Release;
-		};
 		81BA81621A49DA1800E65899 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,7 +276,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -360,13 +293,16 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ParseStarter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -381,28 +317,22 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = ParseStarter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81993FCA1B69AA950077D6B9 /* Build configuration list for PBXAggregateTarget "Bootstrap" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				81993FC81B69AA950077D6B9 /* Debug */,
-				81993FC91B69AA950077D6B9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		81BA81401A49DA1800E65899 /* Build configuration list for PBXProject "ParseStarter-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -422,6 +352,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39CE82D32ACF48BF00142920 /* ParseObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ParseObjC;
+		};
+		39CE82D72ACF48C700142920 /* ParseLiveQuery */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ParseLiveQuery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 81BA813D1A49DA1800E65899 /* Project object */;
 }

@@ -9,8 +9,13 @@
 
 #import "PFOfflineQueryLogic.h"
 
+#if __has_include(<Bolts/BFTask.h>)
 #import <Bolts/BFTask.h>
 #import <Bolts/BFExecutor.h>
+#else
+#import "BFTask.h"
+#import "BFExecutor.h"
+#endif
 
 #import "PFACL.h"
 #import "PFAssert.h"
@@ -325,6 +330,19 @@ greaterThanOrEqualTo:(id)constraint {
 }
 
 /**
+ Matches $containedBy constraints.
+ */
++ (BOOL)matchesValue:(NSArray *)values
+      containedBy:(NSArray *)constraints {
+    for (id value in values) {
+        if (![self matchesValue:value containedIn:constraints]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+/**
  Matches $regex constraints.
  */
 + (BOOL)matchesValue:(id)value
@@ -441,6 +459,8 @@ greaterThanOrEqualTo:(id)constraint {
         return [self matchesValue:value notContainedIn:constraint];
     } else if ([operator isEqualToString:PFQueryKeyContainsAll]) {
         return [self matchesValue:value containsAllObjectsInArray:constraint];
+    } else if ([operator isEqualToString:PFQueryKeyContainedBy]) {
+        return [self matchesValue:value containedBy:constraint];
     } else if ([operator isEqualToString:PFQueryKeyRegex]) {
         return [self matchesValue:value regex:constraint withOptions:allKeyConstraints[PFQueryOptionKeyRegexOptions]];
     } else if ([operator isEqualToString:PFQueryOptionKeyRegexOptions]) {
@@ -583,6 +603,31 @@ greaterThanOrEqualTo:(id)constraint {
 }
 
 /**
+ Handles $and queries.
+ */
+- (PFConstraintMatcherBlock)createAndMatcherForQueries:(NSArray *)queries user:(PFUser *)user {
+    NSMutableArray *matchers = [NSMutableArray array];
+    for (PFQuery *query in queries) {
+        PFConstraintMatcherBlock matcher = [self createMatcherWithQueryConstraints:query.state.conditions user:user];
+        [matchers addObject:matcher];
+    }
+
+    // Now AND together the constraints for each query.
+    return ^BFTask *(PFObject *object, PFSQLiteDatabase *database) {
+        BFTask *task = [BFTask taskWithResult:@YES];
+        for (PFConstraintMatcherBlock matcher in matchers) {
+            task = [task continueWithSuccessBlock:^id(BFTask *task) {
+                if (![task.result boolValue]) {
+                    return task;
+                }
+                return matcher(object, database);
+            }];
+        }
+        return task;
+    };
+}
+
+/**
  Returns a PFConstraintMatcherBlock that return true iff the object matches queryConstraints. This
  takes in a SQLiteDatabase connection because SQLite is finicky about nesting connections, so we
  want to reuse them whenever possible.
@@ -593,6 +638,10 @@ greaterThanOrEqualTo:(id)constraint {
         if ([key isEqualToString:PFQueryKeyOr]) {
             // A set of queries to be OR-ed together
             PFConstraintMatcherBlock matcher = [self createOrMatcherForQueries:queryConstraintValue user:user];
+            [matchers addObject:matcher];
+        } else if ([key isEqualToString:PFQueryKeyAnd]) {
+            // A set of queries to be AND-ed together
+            PFConstraintMatcherBlock matcher = [self createAndMatcherForQueries:queryConstraintValue user:user];
             [matchers addObject:matcher];
         } else if ([key isEqualToString:PFQueryKeyRelatedTo]) {
             PFConstraintMatcherBlock matcher = ^BFTask *(PFObject *object, PFSQLiteDatabase *database) {

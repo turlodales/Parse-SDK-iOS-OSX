@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'plist'
-gem 'naturally', '~> 1.3.2'
-gem 'jazzy', '~> 0.13.5'
-gem 'xcpretty'
-gem 'rake'
+# Docs
+gem 'jazzy', '0.15.4'
+gem 'cgi', '0.5.1'
+
+# Development
+gem 'xcpretty', '0.3.0'
+gem 'rake', '13.2.1'
+gem 'plist', '3.7.1'

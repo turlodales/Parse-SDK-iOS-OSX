@@ -28,6 +28,8 @@
     state.cachePolicy = kPFCachePolicyCacheOnly;
     state.maxCacheAge = 100500.0;
     state.trace = YES;
+    state.hint = @"_id_";
+    state.explain = YES;
     state.shouldIgnoreACLs = YES;
     state.shouldIncludeDeletingEventually = YES;
     state.queriesLocalDatastore = YES;
@@ -39,6 +41,7 @@
     [state sortByKey:@"a" ascending:NO];
 
     [state includeKey:@"yolo"];
+    [state excludeKey:@"yolo"];
     [state selectKeys:@[ @"yolo" ]];
     [state redirectClassNameForKey:@"ABC"];
     return state;
@@ -60,10 +63,13 @@
     XCTAssertEqualObjects(state.sortKeys, differentState.sortKeys);
     XCTAssertEqualObjects(state.sortOrderString, differentState.sortOrderString);
     XCTAssertEqualObjects(state.includedKeys, differentState.includedKeys);
+    XCTAssertEqualObjects(state.excludedKeys, differentState.excludedKeys);
     XCTAssertEqualObjects(state.selectedKeys, differentState.selectedKeys);
     XCTAssertEqualObjects(state.extraOptions, differentState.extraOptions);
 
     XCTAssertEqualObjects(state.localDatastorePinName, differentState.localDatastorePinName);
+    XCTAssertEqualObjects(state.hint, differentState.hint);
+    XCTAssertEqual(state.explain, differentState.explain);
 }
 
 ///--------------------------------------
@@ -207,6 +213,31 @@
 
     NSSet *includedKeys = PF_SET(@"a", @"b", @"c");
     XCTAssertEqualObjects(state.includedKeys, includedKeys);
+}
+
+- (void)testIncludeAll {
+    PFMutableQueryState *state = [[PFMutableQueryState alloc] initWithParseClassName:@"Yarr"];
+    [state includeAll];
+
+    NSSet *includedKeys = PF_SET(@"*");
+    XCTAssertEqualObjects(state.includedKeys, includedKeys);
+}
+
+- (void)testExcludeKeys {
+    PFMutableQueryState *state = [[PFMutableQueryState alloc] initWithParseClassName:@"Yarr"];
+    [state excludeKey:@"a"];
+    [state excludeKey:@"b"];
+
+    NSSet *excludedKeys = PF_SET(@"a", @"b");
+    XCTAssertEqualObjects(state.excludedKeys, excludedKeys);
+}
+
+- (void)testExcludeMultipleKeys {
+    PFMutableQueryState *state = [[PFMutableQueryState alloc] initWithParseClassName:@"Yarr"];
+    [state excludeKeys:@[ @"a", @"b", @"c" ]];
+
+    NSSet *excludedKeys = PF_SET(@"a", @"b", @"c");
+    XCTAssertEqualObjects(state.excludedKeys, excludedKeys);
 }
 
 - (void)testSelectKeys {

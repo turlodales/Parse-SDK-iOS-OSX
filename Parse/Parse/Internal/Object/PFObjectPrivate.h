@@ -9,9 +9,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Parse/PFObject.h>
+#import "PFObject.h"
 
+#if __has_include(<Bolts/BFTask.h>)
 #import <Bolts/BFTask.h>
+#else
+#import "BFTask.h"
+#endif
 
 #import "PFDecoder.h"
 #import "PFEncoder.h"
@@ -197,8 +201,6 @@
 - (void)performOperation:(PFFieldOperation *)operation forKey:(NSString *)key;
 - (void)setHasBeenFetched:(BOOL)fetched;
 - (void)_setDeleted:(BOOL)deleted;
-
-- (BOOL)isDataAvailableForKey:(NSString *)key;
 
 - (BOOL)_hasChanges;
 - (BOOL)_hasOutstandingOperations;

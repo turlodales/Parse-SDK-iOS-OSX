@@ -10,10 +10,7 @@
 import UIKit
 import UserNotifications
 
-import Parse
-
-// If you want to use any of the UI components, uncomment this line
-// import ParseUI
+import ParseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - UIApplicationDelegate
     //--------------------------------------
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // ****************************************************************************
         // Initialize Parse SDK
         // ****************************************************************************
@@ -44,23 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
 
-        // ****************************************************************************
-        // If you are using Facebook, uncomment and add your FacebookAppID to your bundle's plist as
-        // described here: https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/
-        // Uncomment the line inside ParseStartProject-Bridging-Header and the following line here:
-        // PFFacebookUtils.initializeFacebook()
-        // ****************************************************************************
-
         PFUser.enableAutomaticUser()
 
         let defaultACL = PFACL()
 
         // If you would like all objects to be private by default, remove this line.
-        defaultACL.getPublicReadAccess = true
+        defaultACL.hasPublicReadAccess = true
 
         PFACL.setDefault(defaultACL, withAccessForCurrentUser: true)
 
-        if application.applicationState != UIApplicationState.background {
+        if application.applicationState != UIApplication.State.background {
             // Track an app open here if we launch with a push, unless
             // "content_available" was used to trigger a background push (introduced in iOS 7).
             // In that case, we skip tracking here to avoid double counting the app-open.
@@ -68,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let oldPushHandlerOnly = !responds(to: #selector(UIApplicationDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)))
             var noPushPayload = false
             if let options = launchOptions {
-                noPushPayload = options[UIApplicationLaunchOptionsKey.remoteNotification] == nil
+                noPushPayload = options[UIApplication.LaunchOptionsKey.remoteNotification] == nil
             }
             if oldPushHandlerOnly || noPushPayload {
                 PFAnalytics.trackAppOpened(launchOptions: launchOptions)
@@ -120,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         PFPush.handle(userInfo)
-        if application.applicationState == UIApplicationState.inactive {
+        if application.applicationState == UIApplication.State.inactive {
             PFAnalytics.trackAppOpened(withRemoteNotificationPayload: userInfo)
         }
     }
@@ -132,16 +122,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //     if application.applicationState == UIApplicationState.Inactive {
     //         PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
     //     }
-    // }
-
-    //--------------------------------------
-    // MARK: Facebook SDK Integration
-    //--------------------------------------
-
-    ///////////////////////////////////////////////////////////
-    // Uncomment this method if you are using Facebook
-    ///////////////////////////////////////////////////////////
-    // func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    //     return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication, session:PFFacebookUtils.session())
     // }
 }

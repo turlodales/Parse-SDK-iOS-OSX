@@ -16,6 +16,9 @@
 @property (nonatomic, assign, readwrite) NSInteger limit;
 @property (nonatomic, assign, readwrite) NSInteger skip;
 
+@property (nonatomic, assign, readwrite) BOOL explain;
+@property (nonatomic, copy, readwrite) NSString *hint;
+
 ///--------------------------------------
 #pragma mark - Remote + Caching Options
 ///--------------------------------------
@@ -66,6 +69,14 @@
 
 - (void)includeKey:(NSString *)key;
 - (void)includeKeys:(NSArray<NSString *> *)keys;
+- (void)includeAll;
+
+///--------------------------------------
+#pragma mark - Excludes
+///--------------------------------------
+
+- (void)excludeKey:(NSString *)key;
+- (void)excludeKeys:(NSArray<NSString *> *)keys;
 
 ///--------------------------------------
 #pragma mark - Selected Keys
